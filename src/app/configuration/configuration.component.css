@@ -1,0 +1,25 @@
+.header{
+    font-size: 15px;
+}
+ 
+.head{
+    margin-bottom: 30px;
+    margin-top: 5px;
+}
+.edit-save button{
+    margin-right: 10px;
+    margin-top: 20px;
+}
+.body{
+    margin-top: 70px;
+}
+
+.pass{
+    position: relative;
+}
+.icon-pass{
+    position: absolute;
+    left: 357px; 
+    top : -7px;
+
+}

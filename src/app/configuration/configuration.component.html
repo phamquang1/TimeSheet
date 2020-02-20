@@ -1,0 +1,77 @@
+<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+  <div class="card main-content">
+    <div class="header">
+      <h2>{{"EmailSetting"}}</h2>
+      <ul class="header-dropdown m-r--5">
+        <li>
+          <button mat-icon-button [matMenuTriggerFor]="headerMenu" class="header-dropdown-mat-icon-button">
+            <mat-icon>more_vert</mat-icon>
+          </button>
+          <mat-menu #headerMenu="matMenu">
+            <button mat-menu-item (click)="list()">
+              <mat-icon>refresh</mat-icon>
+              <span>{{ "Refresh" | localize }}</span>
+            </button>
+          </mat-menu>
+        </li>
+      </ul>
+    </div>
+    <div class="head">
+      <div class="col-3 col-lg-3 col-md-3 col-sm-3 col-sx-3">
+        <div class="edit-save">
+          <button *ngIf="!isEditing" large mat-raised-button color="primary" (click)="editMail()">
+            <mat-icon>edit</mat-icon>Edit
+          </button>
+          <button *ngIf="isEditing" large mat-raised-button color="primary" (click)="SaveMail(emailsetting)">
+            <mat-icon>save</mat-icon>Save
+          </button>
+        </div>
+
+      </div>
+    </div>
+    <!----->
+    <div class="body">
+      <form>
+        <div class="row">
+          <div class="col-md-6">
+            <mat-form-field style="max-width: 400px;">
+              <input matInput name="host" placeholder="Host" [(ngModel)]="emailsetting.host" [disabled]="!isEditing" />
+            </mat-form-field>
+          </div>
+          <div class="col-md-6">
+            <mat-form-field style="max-width: 400px;">
+              <input matInput name="port" placeholder="Port" [(ngModel)]="emailsetting.port" [disabled]="!isEditing" />
+            </mat-form-field>
+          </div>
+          <div class=" col-md-6 ">
+            <mat-form-field style="max-width:400px;">
+              <input matInput name="displayname" placeholder="Display Name" [(ngModel)]="emailsetting.fromDisplayName"
+                [disabled]="!isEditing" />
+            </mat-form-field>
+          </div>
+          <div class="col-md-6">
+            <mat-form-field style="max-width: 400px;">
+              <input matInput name="username" placeholder="UserName" [(ngModel)]="emailsetting.userName"
+                [disabled]="!isEditing" />
+            </mat-form-field>
+          </div>
+          <div class="col-md-6">
+            <mat-form-field class="pass" style="max-width: 400px;">
+              <input matInput name="password" placeholder="PassWord" [(ngModel)]="emailsetting.password"
+                type="{{  isShowPassword ? 'password' : 'text' }}" appPassword [disabled]="!isEditing" />
+              <span *ngIf=" isShowPassword" (click)="checkShowpass()" class="icon-pass">
+                <mat-icon>visibility_off</mat-icon>
+              </span>
+              <span *ngIf="! isShowPassword" (click)="checkShowpass()" class="icon-pass">
+                <mat-icon>visibility_of</mat-icon>
+              </span>
+
+            </mat-form-field>
+
+          </div>
+        </div>
+
+      </form>
+    </div>
+  </div>
+</div>
